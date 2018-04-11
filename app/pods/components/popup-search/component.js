@@ -16,7 +16,7 @@ export default Component.extend({
     let open = this.get('open');
     await check(() => popup = this.get('popup'));
     popup[open ? 'open' : 'close']();
-    open && later(() => this.$('input').focus(), 100);
+    open && later(() => this.$('input').focus(), 400)  ;
   },
   actions: {
     close() {
