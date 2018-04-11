@@ -9,3 +9,5 @@ export *  from 'ember-decorators/object/computed';
 export *  from 'ember-decorators/object/evented';
 
 export *  from 'ember-decorators/service';
+
+export * from './utils';

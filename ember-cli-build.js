@@ -1,6 +1,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -28,5 +29,14 @@ module.exports = function(defaults) {
 
   app.import('node_modules/framework7/dist/js/framework7.min.js');
   app.import('node_modules/framework7/dist/css/framework7.min.css');
-  return app.toTree();
+  app.import('node_modules/framework7-icons/css/framework7-icons.css');
+
+
+  let extraAssets = new Funnel('node_modules/framework7-icons/fonts/', {
+     srcDir: '/',
+     include: ['**/*'],
+     destDir: 'fonts'
+  });
+
+  return app.toTree(extraAssets);
 };

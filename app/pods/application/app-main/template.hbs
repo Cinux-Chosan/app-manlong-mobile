@@ -1,2 +1,26 @@
+<!-- Statusbar overlay -->
+<div class="statusbar"></div>
 
-{{yield}}
+<!-- Your main view, should have "view-main" class -->
+<div class="view view-main">
+
+  <div class="toolbar tabbar-labels">
+    <div class="toolbar-inner">
+      {{#link-to "index" class="tab-link" activeClass="tab-link-active"}}
+      <i class="icon f7-icons ios-only">home</i>
+      <span class="tabbar-label">主页</span>
+      {{/link-to}} {{#link-to "search" class="tab-link" activeClass="tab-link-active"}}
+      <i class="icon f7-icons ios-only">chat</i>
+      <span class="tabbar-label">消息</span>
+      {{/link-to}} {{#link-to "user-main" class="tab-link" activeClass="tab-link-active"}}
+      <i class="icon f7-icons ios-only">person</i>
+      <span class="tabbar-label">个人中心</span>
+      {{/link-to}}
+
+    </div>
+  </div>
+
+
+
+  {{yield}}
+</div>

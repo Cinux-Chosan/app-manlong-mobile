@@ -16,6 +16,10 @@ export default Component.extend({
       // Enable swipe panel
       panel: {
         swipe: 'left',
+      },
+      theme: 'ios',
+      view: {
+        iosDynamicNavbar: false
       }
     });
 

@@ -1,5 +1,8 @@
+@import "./global";
+
 html, body{
   &, & > :global(.ember-view), :global(#app) {
     height: 100%;
   }
 }
+
