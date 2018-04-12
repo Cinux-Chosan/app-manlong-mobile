@@ -5,6 +5,11 @@ import { on, check, observes } from  'app-mobile/utils';
 export default Component.extend({
   open: false,
   popup: '',
+  chips: ['Example Chip', 'Another Chip', 'One More Chip', 'Fourth Chip', 'Last One'],
+  @on('init')
+  compInit() {
+    this.set('chips', this.get('chips') || []);
+  },
   @on('didInsertElement')
   async domInsert() {
     await check(() => f7App);

@@ -26,7 +26,18 @@
   <!-- Scrollable page content -->
   <div class="page-content keep-bars-on-scroll">
 
-    {{f7-swiper}}
+    {{#f7-swiper as |swiper|}}
+    {{#each swipers as |img|}}
+      {{#swiper.item}}
+        <img src={{img}} alt="">
+      {{/swiper.item}}
+    {{/each}}
+    {{/f7-swiper}}
+
+    <div class="block nopadding">
+    {{map-bd}}
+
+    </div>
 
 
     <p>Page content goes here Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi tempora modi iure quam maxime,

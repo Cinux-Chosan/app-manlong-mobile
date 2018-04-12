@@ -26,8 +26,15 @@
     </div>
 
     <div class="page-content keep-bars-on-scroll">
+      <div class="block-title">大家都在搜</div>
+      <div class="block block-strong">
+        {{#each chips as |chip|}}
+        <div class="chip">
+          <div class="chip-label">{{chip}}</div>
+        </div>
+        {{/each}}
+      </div>
     </div>
-
   </div>
 </div>
 {{/f7-popup}}

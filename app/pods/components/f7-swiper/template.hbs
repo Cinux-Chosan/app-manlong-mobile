@@ -2,7 +2,7 @@
 
   <div class="swiper-wrapper">
     {{#if hasBlock}}
-      {{yield}}
+      {{yield (hash item=(component "components/f7-swiper/swiper-item"))}}
     {{else}}
       <div class="swiper-slide">Slide 1</div>
       <div class="swiper-slide">Slide 2</div>
