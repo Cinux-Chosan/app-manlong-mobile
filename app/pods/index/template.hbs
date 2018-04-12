@@ -1,4 +1,4 @@
-<div data-name="home" class="page">
+<div data-name="home" class="page" local-class="root">
 
   <div class="navbar">
     <div class="navbar-inner">
@@ -27,84 +27,75 @@
   <div class="page-content keep-bars-on-scroll">
 
     {{#f7-swiper as |swiper|}}
-    {{#each swipers as |img|}}
-      {{#swiper.item}}
-        <img src={{img}} alt="">
-      {{/swiper.item}}
-    {{/each}}
+      {{#each swipers as |img|}}
+        {{#swiper.item}}
+          <img src={{img}} alt="" local-class="swiper-img">
+        {{/swiper.item}}
+      {{/each}}
     {{/f7-swiper}}
+    {{#f7-card as |card|}}
+      {{#card.body}}
+      <div class="row">
+        <!-- Each "cell" has col-[widht in percents] class -->
+          <div class="col-20 text-center">
+            <img src="http://requirejs.org/i/logo.png" alt="" local-class="tabImg">
+            <div class="f-small">家政</div>
+          </div>
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547241143&di=111298390fd7651b518b214261bf6b00&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F140429%2F259424-14042910015529.jpg" alt="" local-class="tabImg">
+            <div class="f-small">维修</div>
+          </div>
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">配送</div>
+          </div>
 
-    <div class="block nopadding">
-    {{map-bd}}
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">搬家</div>
+          </div>
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">收快递</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">代驾</div>
+          </div>
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">xxx</div>
+          </div>
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">xxx</div>
+          </div>
 
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">xxx</div>
+          </div>
+          <div class="col-20 text-center">
+            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523547326584&di=3a8db44284de659bd3e5e5772a06ce26&imgtype=0&src=http%3A%2F%2Fwww.jituwang.com%2Fuploads%2Fallimg%2F150331%2F258807-1503310SF295.jpg" alt="" local-class="tabImg">
+            <div class="f-small">xxx</div>
+          </div>
+      </div>
+      {{/card.body}}
+    {{/f7-card}}
+
+    <div class="block nopadding nomargin">
+      {{!-- {{#f7-card as |card|}} --}}
+        {{!-- {{#card.body class="nopadding"}} --}}
+          {{map-bd mapClicked=(action "mapClicked")}}
+        {{!-- {{/card.body}} --}}
+      {{!-- {{/f7-card}} --}}
     </div>
+  {{show-serves}}
 
-
-    <p>Page content goes here Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi tempora modi iure quam maxime,
-      illum nihil quo ipsa neque, aspernatur asperiores nobis. Quos, voluptatum odio eos quo enim aliquid atque quisquam
-      quas magni placeat, numquam recusandae vitae autem quis iusto saepe tempora, fuga sapiente omnis? Necessitatibus nisi
-      suscipit nostrum cum inventore omnis? Maiores culpa obcaecati amet, suscipit earum unde doloribus at expedita officia,
-      placeat quaerat dolorum velit ipsum harum ullam! Dolores labore non voluptatibus minus nam sed beatae quisquam a quasi
-      omnis, voluptate quod pariatur, ratione excepturi nulla ut et tempora temporibus ipsam architecto nihil minima laudantium.
-      Placeat nobis officia tempore quod omnis repellendus suscipit saepe iure. Vitae iste ipsum natus beatae aspernatur
-      sapiente quam, impedit, adipisci eveniet atque obcaecati excepturi cum odio ex magnam quidem facilis iusto? Nihil,
-      ducimus quis autem aut magnam consectetur ab ullam exercitationem, placeat quo sit molestiae esse corporis enim temporibus
-      atque illo voluptatum? Debitis omnis sapiente explicabo tempore quae! Perspiciatis autem error voluptatum et doloribus
-      enim quaerat soluta minima aliquam delectus nulla quas fuga officia ducimus molestias, quasi eveniet nostrum sint ut
-      alias ab iste nihil voluptatem voluptatibus. Iure consequuntur, assumenda incidunt dolorem expedita nostrum sint repellendus
-      nemo explicabo aperiam numquam quae suscipit blanditiis cum omnis neque magni a distinctio, earum cumque nulla? Deleniti
-      accusantium ipsum debitis exercitationem nam optio aut est, recusandae mollitia eius, modi et obcaecati assumenda quos?
-      Assumenda blanditiis vel nesciunt corporis excepturi dignissimos mollitia, doloribus, praesentium sint natus placeat
-      nemo recusandae? Non, ad porro cupiditate doloremque repudiandae id atque distinctio perferendis qui! Dignissimos numquam
-      quo aliquid officiis magni repudiandae alias perspiciatis earum eveniet fugit ratione facilis et corrupti sequi tempora
-      odio nemo deleniti ab hic eum, neque ullam! Id quisquam cupiditate nihil non porro perferendis optio molestias tenetur
-      assumenda sint nemo quam, dicta, a cum fugiat. Recusandae praesentium expedita nesciunt, ducimus nulla, iure aspernatur
-      hic est repellendus ullam ad cum reiciendis? Dolorem esse nostrum expedita? Ratione, sit pariatur nostrum quos ipsam
-      aliquam perspiciatis fugiat repellendus fuga ut facilis, deleniti quaerat alias modi, explicabo unde provident reiciendis
-      eius. Ut doloremque iure animi quaerat. Qui quidem architecto itaque accusamus temporibus omnis dolores velit maiores
-      a esse, provident quo eveniet eius laboriosam, ad veniam magnam modi numquam dignissimos fuga rem obcaecati ex. Recusandae
-      facere modi sunt repellendus ipsum doloremque, repudiandae ullam, cum hic iste atque praesentium veniam consequuntur,
-      et voluptates quo maiores totam odit. Totam sapiente voluptas sequi possimus blanditiis similique ad rem suscipit,
-      amet laborum magni autem eveniet temporibus? Eligendi voluptate eaque aliquid praesentium amet voluptates doloremque
-      quaerat. Rem distinctio illo ducimus provident sed magnam dicta error ipsa nesciunt laborum voluptas quaerat, ipsam,
-      consectetur architecto! Temporibus atque reprehenderit totam consequuntur laborum quos dolor laboriosam minus illo
-      nobis, ipsa sed quam accusamus labore iusto. Sunt vero repellat voluptatem quidem quod vel quam facilis sequi cupiditate
-      eaque? Neque nemo omnis vitae quisquam voluptatibus non, laboriosam repellat qui cumque sunt labore ab, ut dolore laudantium
-      voluptates fuga maxime. Neque, nulla delectus! Esse debitis magni sed aspernatur quae error placeat iste ipsam animi!
-      Eaque aliquam dicta eius obcaecati, ab culpa porro consequuntur dignissimos tempora maiores numquam vitae. Veritatis
-      commodi doloremque optio fuga temporibus in sunt facilis harum ipsam sapiente dolorem impedit, eos cupiditate ad reprehenderit
-      beatae sed cum, error assumenda dolores! Amet a ipsa quae architecto quas, tempore natus voluptatem! Odit harum sed
-      voluptate non unde nam tempora quidem eius. Ratione sit beatae nisi tempora tempore molestias, inventore voluptates
-      rerum aliquam numquam modi, consequuntur quam ullam maxime! Architecto reprehenderit quibusdam ea perspiciatis dignissimos
-      error at quisquam. Nostrum eligendi modi ab eius, impedit eos tenetur sed odio placeat unde voluptatibus animi quis
-      repellendus delectus magni dolor dolorem, totam doloribus voluptate optio velit. Accusantium sunt, iste reprehenderit
-      asperiores illum voluptatum maiores cumque? Voluptates veniam nam deleniti commodi neque adipisci eius tempore autem
-      non facere, eveniet optio eos ad maxime eaque modi voluptas inventore, ullam itaque nemo molestiae. Obcaecati expedita
-      minima facere voluptate ad nisi iure hic nihil reiciendis recusandae, natus quam ipsa nemo. Recusandae, architecto
-      doloribus sed fuga expedita eaque esse vitae! Sed officia nemo, voluptatibus porro corporis iure, nostrum eum rerum,
-      est odit accusantium dolore adipisci corrupti eaque? Ea, quo! Enim veritatis, temporibus similique maiores placeat
-      explicabo libero fuga, dolores quis rem, delectus necessitatibus possimus. Nemo voluptatum perspiciatis, corrupti,
-      velit quisquam ratione nesciunt ab temporibus illo ex quae dolor distinctio molestiae! Maxime, repellat nam dolor ratione
-      veniam praesentium voluptatibus sapiente, eveniet totam quidem tempore magnam harum possimus vitae natus, ab soluta
-      omnis! Odit amet rem repellendus rerum? Accusantium quidem ipsum adipisci a odio molestias dolorem culpa corrupti iusto
-      saepe inventore quo, distinctio, magnam nam soluta fugit eum quia explicabo tempore dolor exercitationem sit velit!
-      Doloremque, reiciendis. Dolore officiis incidunt inventore eius eveniet quasi aliquam possimus iure minima iusto nam
-      quo beatae, debitis aperiam! Facere consequuntur placeat omnis voluptas non exercitationem doloremque ad. Similique,
-      nobis laboriosam molestias perspiciatis deserunt soluta sunt incidunt. Commodi repellendus eius, rerum veritatis culpa
-      blanditiis facere iure, provident facilis obcaecati dolorum fuga voluptatem illo quis atque vero impedit corrupti quasi
-      eum voluptatibus incidunt id qui modi sed. Ab architecto ex repellat quia blanditiis ipsam porro praesentium? Doloribus
-      expedita labore ipsa similique, autem tempore quia porro dolorem quod architecto pariatur commodi cumque dolor maiores
-      vel ut obcaecati sapiente. Iusto ipsam laudantium sequi, facilis optio in culpa amet recusandae ducimus modi porro
-      provident officiis! Quas eligendi aliquam, veniam atque consectetur ea? Corrupti pariatur quasi veniam voluptates alias
-      sunt sapiente numquam praesentium voluptatum repellat atque fugiat nam, laudantium fuga natus autem maiores voluptatibus
-      adipisci, est dolorum quis maxime ab dolor nisi? Ut, recusandae dolor neque, pariatur, rem nesciunt delectus mollitia
-      vitae debitis quae doloribus sed dicta eaque deleniti. Atque aut totam natus a placeat ducimus labore optio dolor dignissimos
-      fuga ab inventore cupiditate cum unde, similique praesentium nam dolores. Id incidunt veritatis quod reprehenderit
-      modi, assumenda est exercitationem rem fuga expedita aliquid! Tenetur tempora repudiandae vero similique inventore
-      odit, accusantium illo distinctio reiciendis incidunt sequi deleniti necessitatibus officiis ipsa reprehenderit ullam,
-      officia, ab soluta consectetur voluptas eveniet? Ab deleniti facilis illo a ipsum nobis laborum iusto. Illum.</p>
-    <!-- Link to another page -->
   </div>
+
 </div>
 
 

@@ -9,6 +9,8 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('user-main');
   this.route('search');
+  this.route('chat');
+  this.route('messages');
 });
 
 export default Router;

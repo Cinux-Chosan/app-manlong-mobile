@@ -9,7 +9,9 @@ module.exports = {
     'ember'
   ],
   globals: {
-    f7App: true
+    f7App: true,
+    BMap: true,
+    navigator: false
   },
   extends: [
     'eslint:recommended',

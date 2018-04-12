@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 function check(fn, timeout = 15000) {
   let interval = 30;
   let wasted = interval;
@@ -25,7 +23,10 @@ function load(files) {
     return new Promise((res) => {
       if (fileLoaded[files]) return res();
       if (files.endsWith('.js')) {
-        return $.getScript(files).then(() => res(fileLoaded[files] = true));
+        let script = document.createElement('script');
+        script.src = files;
+        script.onload = () => res(fileLoaded[files] = true)
+        document.body.appendChild(script);
       }
       if (files.endsWith('.css')) {
         let link = document.createElement('link');

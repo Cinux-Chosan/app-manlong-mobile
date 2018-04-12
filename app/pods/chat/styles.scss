@@ -1,0 +1,11 @@
+
+.root {
+  :global(.page-content){
+    padding-bottom: 0 !important;
+  }
+}
+
+iframe{
+  width: 100%;
+  height: 100%;
+}

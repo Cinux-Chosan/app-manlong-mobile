@@ -13,6 +13,9 @@ export default Controller.extend({
     openSearch(event) {
       event.target.blur();
       this.set('openSearch', true);
+    },
+    mapClicked() {
+      alert('地图被点击了!')
     }
   }
 });
