@@ -20,10 +20,20 @@ export default Component.extend({
       theme: 'ios',
       view: {
         iosDynamicNavbar: false
+      },
+       notification: {
+        title: '小提示：',
+        closeTimeout: 3000,
+        closeButton: true
       }
     });
 
     window.f7MainView = f7App.views.create('.view-main');
     window.f7App = f7App;
+
+    f7App.notification.create({
+      subtitle: '在微信中打开定位会更加精确哦！',
+      icon: '<i class="icon iconfont icon-manlong-default"></i>'
+    }).open();
   }
 });

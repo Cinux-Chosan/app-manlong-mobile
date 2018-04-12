@@ -2,14 +2,59 @@
 
   <!-- Scrollable page content -->
   <div class="page-content">
-  <!-- Top Navbar -->
-  <div class="navbar">
-    <div class="navbar-inner sliding">
-      <div class="title">Axxxxxxp</div>
-    </div>
-  </div>
-    <p>Page content goes here</p>
-    <!-- Link to another page -->
+    <!-- Top Navbar -->
+    {{!--
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="title">Axxxxxxp</div>
+      </div>
+    </div> --}}
 
+
+    <div class="list media-list nomargin">
+      <ul local-class="user-info">
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <img local-class="user-face" src="http://requirejs.org/i/logo.png" width="80" />
+            </div>
+            <div class="item-inner nomargin">
+              <div class="item-title-row">
+                <div class="item-title" local-class="user-name">用户名</div>
+                <div class="item-after">
+                  <a href="" class="link" local-class="setting-btn">
+                    设置
+                  </a>
+                </div>
+              </div>
+              <div class="item-subtitle">
+                <span local-class="points"> 我的积分: 300 </span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    {{#f7-card as |card|}}
+      {{card.header title="我的订单" rightBtnText="更多订单"}}
+      {{#card.body}}
+              <div class="row">
+          <!-- Each "cell" has col-[widht in percents] class -->
+          <div class="col-33 text-center">
+            <i class="icon f7-icons ios-only">home</i>
+            <div class="f-small">待付款</div>
+          </div>
+          <div class="col-33 text-center">
+            <i class="icon f7-icons ios-only">chat</i>
+            <div class="f-small">待完成</div>
+          </div>
+          <div class="col-33 text-center">
+            <i class="icon f7-icons ios-only">person</i>
+            <div class="f-small">售后</div>
+          </div>
+        </div>
+      {{/card.body}}
+    {{/f7-card}}
   </div>
 </div>

@@ -1,0 +1,18 @@
+.root{
+  height: 120px;
+  width: 100%;
+  :global(.anchorBL){
+    img{
+      display: none;
+    }
+  }
+  :global(.BMap_noprint.anchorBL) {
+    bottom: 2px !important;
+    left: 2px !important;
+  }
+}
+
+.map{
+  width: 100%;
+  height: 100%;
+}

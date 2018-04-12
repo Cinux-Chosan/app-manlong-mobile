@@ -1,4 +1,3 @@
-import $ from 'jquery';
 
 function check(fn, timeout = 15000) {
   let interval = 30;
@@ -16,7 +15,7 @@ function check(fn, timeout = 15000) {
   })
 }
 
-var fileLoaded = {};
+let fileLoaded = {};
 
 function load(files) {
   if (files instanceof Array) {
@@ -24,10 +23,13 @@ function load(files) {
   } else if (typeof files === 'string') {
     return new Promise((res) => {
       if (fileLoaded[files]) return res();
-      if (files.endsWith('.js')) {
-        return $.getScript(files).then(() => res(fileLoaded[files] = true));
+      if (~files.indexOf('.js')) {
+        let script = document.createElement('script');
+        script.src = files;
+        script.onload = () => res(fileLoaded[files] = true);
+        document.body.appendChild(script);
       }
-      if (files.endsWith('.css')) {
+      if (~files.indexOf('.css')) {
         let link = document.createElement('link');
         link.onload = () => res(fileLoaded[files] = true);
         link.rel = 'stylesheet';

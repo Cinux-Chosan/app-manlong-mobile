@@ -6,6 +6,10 @@ export default Component.extend({
   async domInsert() {
     await check(() => f7App);
     f7App.swiper.create(this.$('.swiper-container').get(0), {
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
       pagination: {
         el: '.swiper-pagination'
       }

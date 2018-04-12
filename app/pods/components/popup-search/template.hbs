@@ -13,7 +13,7 @@
           <form class="searchbar">
             <div class="searchbar-inner">
               <div class="searchbar-input-wrap">
-                {{input type="search" placeholder="搜索附近的服务" autofocus=autofocus}}
+                {{input type="search" value=strSearch placeholder="搜索附近的服务"}}
                 <i class="searchbar-icon"></i>
                 <span class="input-clear-button"></span>
               </div>
@@ -26,6 +26,22 @@
     </div>
 
     <div class="page-content keep-bars-on-scroll">
+      <div class="block-title">搜索历史</div>
+      <div class="block block-strong">
+        {{#each chips as |chip|}}
+        <div class="chip" {{action "chipClicked" chip}}>
+          <div class="chip-label">{{chip}}</div>
+        </div>
+        {{/each}}
+      </div>
+      <div class="block-title">大家都在搜</div>
+      <div class="block block-strong">
+        {{#each chips as |chip|}}
+        <div class="chip" {{action "chipClicked" chip}}>
+          <div class="chip-label">{{chip}}</div>
+        </div>
+        {{/each}}
+      </div>
     </div>
 
   </div>

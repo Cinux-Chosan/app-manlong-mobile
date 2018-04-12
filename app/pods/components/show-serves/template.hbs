@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-50">
+    {{#each left as |item|}}
+    {{#f7-card as |card|}}
+      {{#card.body}}
+        <img src={{item.src}}
+      alt="" local-class="serveItem">
+      {{/card.body}}
+    {{#card.footer}}
+    <div>
+      {{item.title}}
+      <div>
+        <span local-class="money">
+          <i class="icon iconfont icon-renminbi f-xsmall"></i> {{item.price}}
+        </span>
+        <span class="f-small" local-class="paidNum">{{item.paidNum}}人付款</span>
+      </div>
+    </div>
+      {{/card.footer}}
+    {{/f7-card}}
+    {{/each}}
+  </div>
+  <div class="col-50">
+    {{#each right as |item|}}
+      {{#f7-card as |card|}}
+        {{#card.body}}
+          <img src={{item.src}}
+        alt="" local-class="serveItem">
+        {{/card.body}}
+      {{#card.footer}}
+      <div>
+        {{item.title}}
+        <div>
+          <span local-class="money">
+            <i class="icon iconfont icon-renminbi f-xsmall"></i> {{item.price}}
+          </span>
+          <span class="f-small" local-class="paidNum">{{item.paidNum}}人付款</span>
+        </div>
+      </div>
+        {{/card.footer}}
+      {{/f7-card}}
+    {{/each}}
+  </div>
+</div>

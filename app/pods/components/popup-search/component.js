@@ -3,8 +3,14 @@ import { later } from '@ember/runloop';
 import { on, check, observes } from  'app-mobile/utils';
 
 export default Component.extend({
+  strSearch: '',
   open: false,
   popup: '',
+  chips: ['Example Chip', 'Another Chip', 'One More Chip', 'Fourth Chip', 'Last One'],
+  @on('init')
+  compInit() {
+    this.set('chips', this.get('chips') || []);
+  },
   @on('didInsertElement')
   async domInsert() {
     await check(() => f7App);
@@ -21,6 +27,9 @@ export default Component.extend({
   actions: {
     close() {
       this.set('open', false);
+    },
+    chipClicked(chip) {
+      this.set('strSearch', chip);
     }
   }
 });
