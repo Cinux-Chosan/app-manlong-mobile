@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { inject as service } from "@ember/service";
 import { on } from 'app-mobile/utils';
 import $ from 'jquery';
+import styles from './styles';
 
 export default Component.extend({
   mapService: service('map-bd'),
@@ -21,6 +22,7 @@ export default Component.extend({
     this.addMapEvents();
     this.addControl();
     this.setCenter();
+    this.customeCtrl();
     // see: https://sites.google.com/a/chromium.org/dev/Home/chromium-security/deprecating-permissions-in-cross-origin-iframes
     // check(() => {
       // if (!f7App.$('iframe[src*="//api.map.baidu.com"]').attr('allow')) {
@@ -30,7 +32,7 @@ export default Component.extend({
   },
   setCenter() {
     let map = this.get('map');
-    let {  lng = 121.491, lat = 31.233 } = JSON.parse($.cookie('uLocation'));
+    let { lng = 121.491, lat = 31.233 } = JSON.parse($.cookie('uLocation') || false) || {};
     map.centerAndZoom(new window.BMap.Point(lng, lat), 16);
     this.get('geo').getLocation(function(r) {
       if (this.getStatus() == window.BMAP_STATUS_SUCCESS) {
@@ -39,7 +41,7 @@ export default Component.extend({
         map.panTo(r.point);
         $.cookie('uLocation', JSON.stringify(r.point), { expires: 30, path: '/' });
       } else {
-        alert('定位失败：' + this.getStatus());
+        alert('定位失败：' + this.getStatus()); 
       }
     });
   },
@@ -57,6 +59,9 @@ export default Component.extend({
         mapLocationError: mapLocationError
       }
     })
+    
+    let f = this.customeCtrl()
+    map.addControl(new f);
   },
 
   addMapEvents() {
@@ -84,5 +89,23 @@ export default Component.extend({
         }
       }
     })
+  },
+
+  // 自定义地图控件
+  customeCtrl() {
+    function ctrlChild() {
+      this.defaultAnchor = window.BMAP_ANCHOR_TOP_RIGHT;
+      this.defaultOffset = new BMap.Size(2, 2);
+      this.initialize = function(map) {
+        let containerEl = map.getContainer();
+        let el = document.createElement('div');
+        el.innerHTML = '<span>放大</span>'
+        el.className= styles['customCtrlPopMap'];
+        containerEl.appendChild(el);
+        return el;
+      }
+    }
+    ctrlChild.prototype = new BMap.Control;
+    return ctrlChild;
   }
 });
