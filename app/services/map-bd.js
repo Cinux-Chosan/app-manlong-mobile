@@ -6,7 +6,7 @@ export default Service.extend({
   mapLoaded: false,
   fnQueue: '',
   @on('init')
-  async serviceInit() {    
+  async serviceInit() {
     this.set('fnQueue', this.get('fnQueue') || []);
     let fnMapLoadedName = 'fnMapLoaded';
     window[fnMapLoadedName] = this.get('fnMapLoaded').bind(this);
@@ -22,7 +22,7 @@ export default Service.extend({
   fnMapLoaded() {
     this.set('mapLoaded', true);
   },
-  push(context, fn, ...params) {
+  pushFn(context, fn, ...params) {
     if (this.get('mapLoaded')) {
       fn.apply(context, params);
     } else {

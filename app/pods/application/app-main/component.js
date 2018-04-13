@@ -1,7 +1,5 @@
 import Component from '@ember/component';
-import {
-  on
-} from 'app-mobile/utils';
+import { on } from 'app-mobile/utils';
 
 export default Component.extend({
   @on('didInsertElement')

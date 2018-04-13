@@ -1,5 +1,44 @@
 <div class="page" local-class="root" data-name="chat">
-  <div class="page-content">
-    <iframe src="http://framework7.io/docs-demos/messages.html" frameborder="0"></iframe>
+  <div class="page-content messages-content">
+    <div class="messages">
+      <!-- Date stamp -->
+      <div class="messages-title">
+        <b>Sunday, Feb 9</b> 12:58</div>
+
+      <!-- Sent message (by default - green and on right side) -->
+      <div class="message message-sent">
+        <div class="message-content">
+          <!-- Bubble with text -->
+          <div class="message-bubble">
+            <div class="message-text">Hi, Kate</div>
+          </div>
+        </div>
+      </div>
+     <!-- Received message (by default - grey on left side) -->
+      <div class="message message-with-avatar message-received">
+        <!-- Sender name -->
+        <div class="message-name">Kate</div>
+
+        <!-- Bubble with text -->
+        <div class="message-text">I am fine, thanks</div>
+
+        <!-- Sender avatar -->
+        <div style="background-image:url(http://lorempixel.com/output/people-q-c-100-100-9.jpg)" class="message-avatar"></div>
+      </div>
+
+      <div class="message message-received">
+        <!-- Sender name -->
+        <div class="message-avatar" style="background-image:url(http://lorempixel.com/100/100/people/7)"></div>
+        <div class="message-content">
+          <!-- Sender name -->
+          <div class="message-name">Blue Ninja</div>
+          <!-- Bubble with text -->
+          <div class="message-bubble">
+            <div class="message-text">Hi there, I am also fine, thanks! And how are you?</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

@@ -1,8 +1,9 @@
 import Route from '@ember/routing/route';
-import { check } from 'app-mobile/utils';
+import { on, check } from 'app-mobile/utils';
 
 export default Route.extend({
-  async beforeModel() {
+  @on('activate')
+  async collectAnalytics() {
     await check(() => window.f7App);
     f7App.toolbar.hide(f7App.$('.toolbar'));
   },

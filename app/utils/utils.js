@@ -9,7 +9,7 @@ function check(fn, timeout = 15000) {
         res();
       } else if ((wasted += interval) > timeout) {
         clearInterval(timer);
-        rej(new Error('load超时'));
+        rej('load超时');
       }
     }, interval);
   })

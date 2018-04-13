@@ -3,7 +3,7 @@ import { computed } from 'app-mobile/utils';
 
 export default Service.extend({
   @computed()
-  geolocation() {
+  get geolocation() {
     return new BMap.Geolocation();
   },
   getLocation(showPosition) {

@@ -5,7 +5,7 @@ export default Component.extend({
   @on('didInsertElement')
   async domInsert() {
     await check(() => f7App);
-    f7App.swiper.create(this.$('.swiper-container').get(0), {
+    f7App.view.create(this.$('.swiper-container').get(0), {
       pagination: {
         el: '.swiper-pagination'
       }
