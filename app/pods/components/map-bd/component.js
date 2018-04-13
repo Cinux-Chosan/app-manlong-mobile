@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from "@ember/service";
-import { on, check } from 'app-mobile/utils';
+import { on } from 'app-mobile/utils';
+import $ from 'jquery';
 
 export default Component.extend({
   mapService: service('map-bd'),
@@ -29,16 +30,16 @@ export default Component.extend({
   },
   setCenter() {
     let map = this.get('map');
-    map.centerAndZoom(new window.BMap.Point(121.491, 31.233), 16);
-
+    let {  lng = 121.491, lat = 31.233 } = JSON.parse($.cookie('uLocation'));
+    map.centerAndZoom(new window.BMap.Point(lng, lat), 16);
     this.get('geo').getLocation(function(r) {
       if (this.getStatus() == window.BMAP_STATUS_SUCCESS) {
         let mk = new BMap.Marker(r.point);
         map.addOverlay(mk);
         map.panTo(r.point);
-        // alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+        $.cookie('uLocation', JSON.stringify(r.point), { expires: 30, path: '/' });
       } else {
-        // alert('failed' + this.getStatus());
+        alert('定位失败：' + this.getStatus());
       }
     });
   },

@@ -30,6 +30,7 @@ module.exports = function(defaults) {
   app.import('node_modules/framework7/dist/js/framework7.min.js');
   app.import('node_modules/framework7/dist/css/framework7.min.css');
   app.import('node_modules/framework7-icons/css/framework7-icons.css');
+  app.import('vendor/jquery-cookie/jquery.cookie.js');
 
 
   let extraAssets = new Funnel('node_modules/framework7-icons/fonts/', {
