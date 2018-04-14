@@ -15,23 +15,23 @@ function check(fn, timeout = 15000) {
   })
 }
 
-let fileLoaded = {};
 
 function load(files) {
+  load.cache = load.cache || {};
   if (files instanceof Array) {
     return Promise.all(files.map(el => load(el)));
   } else if (typeof files === 'string') {
     return new Promise((res) => {
-      if (fileLoaded[files]) return res();
+      if (load.cache[files]) return res();
       if (~files.indexOf('.js')) {
         let script = document.createElement('script');
         script.src = files;
-        script.onload = () => res(fileLoaded[files] = true);
+        script.onload = () => res(load.cache[files] = true);
         document.body.appendChild(script);
       }
       if (~files.indexOf('.css')) {
         let link = document.createElement('link');
-        link.onload = () => res(fileLoaded[files] = true);
+        link.onload = () => res(load.cache[files] = true);
         link.rel = 'stylesheet';
         link.href = files;
         document.head.appendChild(link);

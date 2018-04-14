@@ -9,14 +9,20 @@ export default Service.extend({
   async serviceInit() {
     this.set('fnQueue', this.get('fnQueue') || []);
     let fnMapLoadedName = 'fnMapLoaded';
-    window[fnMapLoadedName] = this.get('fnMapLoaded').bind(this);
+    window[fnMapLoadedName] = () => this.fnMapLoaded();
     load(`//api.map.baidu.com/api?v=3.0&ak=${ak}&callback=${fnMapLoadedName}&filetype4load=.js`);
   },
   @observes('mapLoaded')
   flushQueue() {
     if (this.get('mapLoaded')) {
       let fns = this.get('fnQueue');
-      fns.forEach(el => el.fn.apply(el.context, el.params));
+      fns.forEach(el => {
+        try {  // 执行函数时组件可能已经销毁
+          el.fn.apply(el.context, el.params);
+        } catch (error) {
+          console.log(error.message);
+        }
+      });
     }
   },
   fnMapLoaded() {
