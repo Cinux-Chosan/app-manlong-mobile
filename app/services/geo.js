@@ -30,6 +30,7 @@ export default Service.extend({
 
   @computed()
   get isWx() {
-    return ~navigator.userAgent.toLowerCase().indexOf('micromessenger'); // 检测是否在微信当中, 并且是否已经有 sdk 权限
+    return false;
+    // return ~navigator.userAgent.toLowerCase().indexOf('micromessenger'); // 检测是否在微信当中, 并且是否已经有 sdk 权限
   }
 });
