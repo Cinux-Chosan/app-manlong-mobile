@@ -29,9 +29,11 @@ export default Component.extend({
     window.f7MainView = f7App.views.create('.view-main');
     window.f7App = f7App;
 
-    f7App.notification.create({
-      subtitle: '在微信中打开定位会更加精确哦！',
-      icon: '<i class="icon iconfont icon-manlong-default"></i>'
-    }).open();
+    if (window.browserEnv !== 'wx') {
+      f7App.notification.create({
+        subtitle: '在微信中打开定位会更加精确哦！',
+        icon: '<i class="icon iconfont icon-manlong-default"></i>'
+      }).open();
+    }
   }
 });

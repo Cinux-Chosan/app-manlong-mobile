@@ -25,3 +25,10 @@ let base = {
 
 Component.reopen(base)
 Controller.reopen(base);
+
++function(){
+  let ua = navigator.userAgent;
+  if(~ua.toLowerCase().indexOf('micromessenger')) {
+    window.browserEnv = 'wx';
+  }
+}()
