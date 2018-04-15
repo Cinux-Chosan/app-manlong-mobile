@@ -1,0 +1,23 @@
+
+
+
+
+.code-input-wrap{
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    input.code-input {
+        width: 50%;
+        float: left;
+    }
+    .use-code{
+        width: 50%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+.loginBtn{
+    width: 80%;
+    margin: auto;
+}

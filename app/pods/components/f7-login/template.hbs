@@ -1,0 +1,68 @@
+  <!-- Default view-page layout -->
+  <div class="view">
+    <div class="page">
+      <!-- page-content has additional login-screen content -->
+      <div class="page-content login-screen-content">
+        <div class="login-screen-title">登录善匠</div>
+        <!-- Login form -->
+        <form>
+          <div class="list">
+            <ul>
+              <li class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">用户名</div>
+                  <div class="item-input-wrap clearfix row" local-class="code-input-wrap">
+                    {{input value=login.userInfo.account type="text" name="username" class="col col-66" placeholder="请输入手机号/邮箱"}}
+                  </div>
+                </div>
+              </li>
+              {{!-- 如果是使用密码登录或者注册，则显示输入密码 --}}
+              {{log isSignUp}}
+              {{#if (or (eq loginWay "password") isSignUp)}}  
+              <li class="item-content item-input">
+                <div class="item-inner">
+                  <div class="item-title item-label">密码</div>
+                  <div class="item-input-wrap clearfix row">
+                        {{input value=login.userInfo.password type="password" name="password" class="col col-50" local-class="code-input" placeholder="请输入密码"}}
+                  </div>
+                </div>
+              </li>
+              {{/if}}
+              {{#if (or (eq loginWay "code") isSignUp)}}
+                <li class="item-content item-input">
+                    <div class="item-inner">
+                    <div class="item-title item-label">验证码</div>
+                    <div class="item-input-wrap clearfix row" local-class="code-input-wrap">
+                        {{input value=login.userInfo.code class="d-inline-block col col-33" local-class="code-input" type="number" name="password" placeholder="请输入验证码"}}
+                        <button class="col col- button button-outline button-round {{if remainSeconds 'disabled'}}" disabled={{remainSeconds}} local-class="btn-getcode" {{action "getCode"  target=login}}>{{getCodeText}}</button>
+                    </div>
+                    </div>
+                 </li>
+              {{/if}}
+            </ul>
+          </div>
+          <div class="list">
+            <ul>
+              <li>
+                  <a class="item-link button button-round button-big button-fill" local-class="loginBtn"{{action "signIn" target=login}}>登录</a>
+              </li>
+            </ul>
+            <div class="block-footer">
+                <div class="float-left">
+                    {{#unless isSignUp}}
+                        <a href="javascript:;" class="link" {{action "changeLoginWay" loginWay}}>
+                            {{loginWayText}}
+                        </a>
+                    {{/unless}}
+                    </div>
+                <div class="float-right">
+                    <a href="javascript:;" {{action "toggleSignUp"}}>
+                        {{if isSignUp "登录" "注册"}}
+                    </a>
+                    </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

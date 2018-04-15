@@ -40,10 +40,30 @@
   width: 50%;
 }
 
-.inline-block{
-  display: inline-block;
+.d-inline-block{
+  display: inline-block !important;
 }
 
 .d-block{
   display: block !important;
+}
+
+.d-flex{
+  display: flex;
+}
+
+.clearfix{
+  &::before, &::after{
+    content: '';
+    visibility:hidden;
+    display: block;
+    clear: both;
+    height:0;
+  }
+}
+
+.flex-all-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

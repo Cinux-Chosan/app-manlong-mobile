@@ -20,8 +20,8 @@ export default Mixin.create({
 
   mapInitialized() {
     // ... 地图初始化完成过后的代码
-    this.addControls();
     this.setCenter();
+    this.addControls();
     this.resetLocation();
     this.addMapEvents();
   },
@@ -60,7 +60,10 @@ export default Mixin.create({
 
   addGeolocationControl() {
     let { map, mapLocationSuccess, mapLocationError, unBounds } = this.getProperties(['map', 'mapLocationSuccess', 'locationError', 'unBounds']);
-    let geoCtrl = new BMap.GeolocationControl({ enableAutoLocation: true });
+    let geoCtrl = new BMap.GeolocationControl({ 
+      enableAutoLocation: true,   // enableAutoLocation，showAddressBar 这两个参数自从2014年就有人报无效 bug， 现在依然无效
+      showAddressBar: false,
+    });
     mapLocationSuccess && geoCtrl.addEventListener('locationSuccess', mapLocationSuccess);
     mapLocationError && geoCtrl.addEventListener('locationError', mapLocationError);
     map.addControl(geoCtrl);

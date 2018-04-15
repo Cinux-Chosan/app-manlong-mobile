@@ -2,14 +2,6 @@
 
   <!-- Scrollable page content -->
   <div class="page-content">
-    <!-- Top Navbar -->
-    {{!--
-    <div class="navbar">
-      <div class="navbar-inner sliding">
-        <div class="title">Axxxxxxp</div>
-      </div>
-    </div> --}}
-
 
     <div class="list media-list nomargin">
       <ul local-class="user-info">
@@ -20,7 +12,16 @@
             </div>
             <div class="item-inner nomargin">
               <div class="item-title-row">
-                <div class="item-title" local-class="user-name">用户名</div>
+                <div class="item-title" local-class="user-name">
+                  {{#if service.loggedIn}}
+                  用户名
+                  {{else}}
+                  {{#link-to (query-params popLogin=1) class="login-screen-open color-white"}}
+                    登录
+                  {{/link-to}}
+                   / 注册
+                  {{/if}}
+                </div>
                 <div class="item-after">
                   <a href="" class="link" local-class="setting-btn">
                     设置
