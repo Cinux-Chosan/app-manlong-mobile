@@ -4,8 +4,9 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
     login: service(),
-    queryParams: ['popLogin'],
+    queryParams: ['popLogin', 'isSignUp'],
     popLogin: '',
+    isSignUp: '',
     @observes('popLogin')
     isPopLogin() {
         let { popLogin, login } = this.getProperties(['popLogin', 'login']);
@@ -14,5 +15,9 @@ export default Controller.extend({
         } else {
             login.closeLogin();
         }
+    },
+    @observes('isSignUp')
+    isSignUpChanged() {
+        this.set('login.isSignUp', this.get('isSignUp'));
     }
 });

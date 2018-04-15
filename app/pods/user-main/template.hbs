@@ -19,7 +19,10 @@
                   {{#link-to (query-params popLogin=1) class="login-screen-open color-white"}}
                     登录
                   {{/link-to}}
-                   / 注册
+                   / 
+                   {{#link-to (query-params popLogin=1 isSignUp=1) class="login-screen-open color-white"}}
+                   注册
+                   {{/link-to}}
                   {{/if}}
                 </div>
                 <div class="item-after">

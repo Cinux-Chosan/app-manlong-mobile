@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
     login: service(),
-    isSignUp: false,
+    @alias('login.isSignUp') isSignUp: '',
     @alias('login.remainSeconds') remainSeconds: 0,
     loginWay: 'password',
     @computed('login.remainSeconds')

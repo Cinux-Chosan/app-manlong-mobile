@@ -6,6 +6,7 @@ export default Service.extend({
     remainSeconds: 0,
     isLoggedIn: false,
     userInfo: '',
+    isSignUp: false,
     @on('init') 
     loginInit() {
         // 检查是否登录
