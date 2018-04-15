@@ -42,7 +42,16 @@ export default Service.extend({
     signIn() {
         // 登录逻辑
         // let userinfo = this.get('userInfo');
+        // 检查用户输入是否合格
         f7App.dialog.progress('登录中...');
         later(() => f7App.dialog.close(), 5000);
-    }
+    },
+    signUp() {
+        // 注册逻辑
+        // let userinfo = this.get('userInfo');
+        // 检查用户输入是否合格
+
+        f7App.dialog.progress('正在完成注册...');
+        later(() => f7App.dialog.close(), 5000);
+     }
 });

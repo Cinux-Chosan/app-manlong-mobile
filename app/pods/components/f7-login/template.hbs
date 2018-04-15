@@ -44,7 +44,11 @@
           <div class="list">
             <ul>
               <li>
-                  <a class="item-link button button-round button-big button-fill" local-class="loginBtn"{{action "signIn" target=login}}>登录</a>
+                  {{#if isSignUp}}
+                    <a class="item-link button button-round button-big button-fill" local-class="loginBtn"{{action "signUp" target=login}}>立即注册</a>
+                  {{else}}
+                    <a class="item-link button button-round button-big button-fill" local-class="loginBtn"{{action "signIn" target=login}}>登录</a>
+                  {{/if}}
               </li>
             </ul>
             <div class="block-footer">
